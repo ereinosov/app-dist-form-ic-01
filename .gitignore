@@ -1,0 +1,24 @@
+# Archivos auxiliares de LaTeX (el PDF compilado sí se versiona)
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.nav
+*.snm
+*.vrb
+
+# Basura del sistema y del editor
+Thumbs.db
+.DS_Store
+*.bak
+*~
