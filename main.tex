@@ -51,7 +51,11 @@ Las fuentes no publican mediciones de latencia, costes ni incidentes. Los benefi
 
 \section{Desafíos encontrados y cómo se resolvieron}
 
+Las fuentes describen tres problemas. El primero fue evitar una refactorización «big-bang»: SoundCloud dejó de añadir funciones al monolito y extrajo código solo al refactorizar~\cite{calcado2014monolith}. El segundo, la extracción no avanzaba. Cada entidad tardaba varios meses, dependía de todos los equipos y algunos servicios seguían leyendo la base del monolito. Repartieron el cambio de los puntos de llamada, redefinieron «terminado», fijaron normas de integración y midieron el avance con monitoreo~\cite{stuart2016monolith}. El tercero, el Strangler quedó sin mantenimiento, con rutas duplicadas, pérdida de conocimiento y un Rails obsoleto expuesto. Portaron todos los endpoints y eliminaron el código de la API pública~\cite{obrien2022strangler}. No son problemas aislados. Una revisión de 85 estudios agrupa los desafíos de los microservicios en nueve categorías, entre ellas seguridad y monitorización~\cite{soylemez2022challenges}. Entrevistas a 19 ingenieros de 16 empresas describen la migración como un proceso iterativo, con un cambio sistémico y otro técnico~\cite{ayas2023empirical}.
+
 \section{Aplicación al proyecto propio}
+
+El SSDC parte de una aplicación web existente y su PFC será de microservicios. De SoundCloud tomo tres decisiones. Primera, no añadir funciones al código original: las nuevas nacen como servicios~\cite{calcado2014monolith}. Segunda, los servicios no leen la base de datos del código original y usan su API~\cite{calcado2014monolith}. Tercera, definir desde el inicio qué significa «terminado» y medir el avance~\cite{stuart2016monolith}. No tomo el Strangler ni el BFF en Scala. Resolvieron una API con miles de clientes externos, que el SSDC no tiene. Tampoco una migración de ocho años~\cite{obrien2022strangler}. Para decidir qué extraer primero, Fritzsch et al. proponen una metodología orientada a calidad para descomponer monolitos, apoyada en 110 publicaciones~\cite{fritzsch2026framework}.
 
 \clearpage
 \section*{Evidencias de autoría}
