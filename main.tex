@@ -43,6 +43,8 @@ SoundCloud arrancó con un monolito Ruby on Rails llamado «Mothership». Allí 
 
 \section{Por qué SoundCloud eligió microservicios y qué tenía antes}
 
+Todo vivía en un solo código. La aplicación Rails, con MRI, memcached y MySQL, servía la API pública y la web. Desde Next SoundCloud, en 2012, la API pública era la interfaz principal y los clientes propios se construyeron sobre ella~\cite{calcado2014monolith}. El equipo sentía que solo parchaba el sistema sin resolver el problema de fondo de escalabilidad. Debía reaccionar también a la actividad de los usuarios, y consultar periódicamente al servidor (polling) no era viable a esa escala~\cite{calcado2014monolith}. Los servicios nuevos no leen la base de datos del monolito. Usan su API pública, porque la base es una interfaz no publicada y cambiar tablas compartidas causa problemas~\cite{calcado2014monolith}.
+
 \section{Beneficios obtenidos}
 
 \section{Desafíos encontrados y cómo se resolvieron}
