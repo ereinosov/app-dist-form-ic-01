@@ -47,6 +47,8 @@ Todo vivía en un solo código. La aplicación Rails, con MRI, memcached y MySQL
 
 \section{Beneficios obtenidos}
 
+Las fuentes no publican mediciones de latencia, costes ni incidentes. Los beneficios que describen son cualitativos. Calçado señala ciclos de retroalimentación mucho más cortos para llevar funciones a producción, y da como ejemplo el nuevo sistema de estadísticas~\cite{calcado2014monolith}. Dejar de añadir código al monolito evitó refactorizaciones masivas~\cite{calcado2014monolith}. Al cierre de la migración, el código de la API pública salió del monolito y el Strangler pasó a ser un BFF (backend for frontend, servicio que adapta la API a cada cliente) completo en Scala, un lenguaje que la mayoría de los ingenieros puede aprender a tocar~\cite{obrien2022strangler}.
+
 \section{Desafíos encontrados y cómo se resolvieron}
 
 \section{Aplicación al proyecto propio}
