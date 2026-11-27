@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black]{hyperref}
 \usepackage[backend=biber,style=ieee]{biblatex}
+\DefineBibliographyStrings{spanish}{artno={art.}}
 \addbibresource{referencias.bib}
 
 \title{Migración de SoundCloud de un monolito a microservicios}
@@ -62,9 +63,36 @@ El SSDC parte de una aplicación web existente y su PFC será de microservicios.
 
 \subsection*{Captura de la fuente principal}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.48\textwidth]{capturas/01-mothership-stack.png}\hfill
+\includegraphics[width=0.48\textwidth]{capturas/02-escala-2014.png}\\[6pt]
+\includegraphics[width=0.48\textwidth]{capturas/03-no-anadir-al-monolito.png}\hfill
+\includegraphics[width=0.48\textwidth]{capturas/04-ciclos-feedback.png}
+\caption{Fuente principal~\cite{calcado2014monolith} con los fragmentos usados, marcados en amarillo. Capturas propias del 26 de noviembre de 2026.}
+\end{figure}
+
 \subsection*{Sistema conocido de primera mano}
 
+Ejecuté en mi computador la demo OpenTelemetry Astronomy Shop, una tienda en línea de ejemplo hecha con microservicios, con Docker Compose (\texttt{docker compose up --no-build}). La figura muestra 20 contenedores en ejecución. Cada servicio, como \texttt{cart}, \texttt{checkout}, \texttt{payment}, \texttt{shipping} y \texttt{product-catalog}, corre en su propio contenedor y publica su propio puerto. Los datos viven en contenedores aparte, como \texttt{astronomy-db} y \texttt{valkey-cart}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{capturas/05-demo-contenedores.png}
+\caption{Salida de \texttt{docker compose ps} en mi computador, 26 de noviembre de 2026.}
+\end{figure}
+
+Abrí la tienda en \texttt{localhost:8080}, puerto que publica \texttt{frontend-proxy}, y agregué al carrito un telescopio y un libro. La aplicación calculó el costo de envío y el total en dólares. El Compose define servicios separados para carrito, catálogo de productos, envío y moneda.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{capturas/06-demo-tienda.png}
+\caption{Carrito de la tienda en \texttt{localhost:8080}, 26 de noviembre de 2026.}
+\end{figure}
+
 \subsection*{Declaración de uso de inteligencia artificial}
+
+Herramienta: Claude Sonnet 5.5 (Anthropic), usado desde claude.ai. Uso: búsqueda y contraste de fuentes, borradores de los apartados 1 a 5, revisión de estilo y preparación del esqueleto LaTeX y del archivo de referencias. Verificación: abrí cada DOI y cada URL de blog y comparé autores, año, título, revista, volumen y páginas con la ficha del editor. Contrasté las cifras con el texto de Calçado (2014) y de O'Brien y Creixell (2022), y compilé y revisé el PDF.
 
 \clearpage
 \printbibliography

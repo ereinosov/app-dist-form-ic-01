@@ -30,7 +30,8 @@ app-dist-form-ic-01/
 ├── main.tex          # Archivo principal del informe
 ├── referencias.bib   # Referencias en formato IEEE (biblatex)
 ├── main.pdf          # PDF compilado
-├── capturas/         # Captura anotada de la fuente principal
+├── capturas/         # Capturas: fuente principal anotada (01 a 04) y demo ejecutada (05 y 06)
+├── borradores/       # Notas de fuentes con cada cifra, su fecha y lo que las fuentes no reportan
 ├── .gitignore
 └── README.md
 ```
@@ -48,4 +49,4 @@ pdflatex main.tex
 pdflatex main.tex
 ```
 
-El resultado es `main.pdf`. Los paquetes que carga `main.tex` se instalan solos en MiKTeX; en TeX Live deben estar instalados.
+El resultado es `main.pdf`. Paquetes que carga `main.tex`: `inputenc`, `fontenc`, `babel` (spanish), `geometry`, `csquotes`, `graphicx`, `hyperref` y `biblatex` (backend `biber`, estilo `ieee`). Se instalan solos en MiKTeX; en TeX Live deben estar instalados.
